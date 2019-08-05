@@ -8,10 +8,10 @@ let longitude = 0
 function gotData(data) {
     longitude = data.iss_position.longitude
     latitude = data.iss_position.latitude
-    issY = map(latitude, -90, 90, 0, 600)
-    issX = map(longitude, -360, 360, 0, 1350)
-    console.log(issX + ' ' + latitude)
-    console.log(issY + ' ' + longitude)
+
+    //map the on-screen latitude and longitude to fit on the canvas
+    issX = map(longitude, -180, 180, 0, 632)
+    issY = map(latitude, 90, -90, 0, 399)
 }
 
 function askISS() {
@@ -21,23 +21,24 @@ function askISS() {
 
 //p5.js functions
 function preload() {
-    mapImg = loadImage("https://upload.wikimedia.org/wikipedia/commons/0/09/BlankMap-World-v2.png")
+    mapImg = loadImage("https://upload.wikimedia.org/wikipedia/commons/7/70/Arno_Peters-Projektion.JPG")
 }
 
 function setup() {
     setInterval(askISS, 5000) //call function every 5 seconds
-    createCanvas(1350, 600)
-    fill(0)
+    createCanvas(632, 399)
+    fill('#ff0000')
+    stroke('#ff0000')
 }
 
 function draw() {
     image(mapImg, 0, 0)
     ellipse(issX, issY, 10, 10)
 
+    //display the labels next to the ISS dot
     textSize(15)
     text('ISS', issX + 10, issY)
     textSize(12)
     text('latitude: ' + latitude, issX+10, issY+20)
     text('longitude: ' + longitude, issX+10, issY+35)
 }
-
