@@ -10,8 +10,8 @@ function gotData(data) {
     latitude = data.iss_position.latitude
 
     //map the on-screen latitude and longitude to fit on the canvas
-    issX = map(longitude, -180, 180, 0, 500)
-    issY = map(latitude, 90, -90, 0, 555)
+    issX = map(longitude, -180, 180, 0, 632)
+    issY = map(latitude, 90, -90, 0, 399)
 }
 
 function askISS() {
@@ -21,12 +21,12 @@ function askISS() {
 
 //p5.js functions
 function preload() {
-    mapImg = loadImage("https://www.axismaps.com/guide/general/map-projections/projections1.jpg")
+    mapImg = loadImage("https://upload.wikimedia.org/wikipedia/commons/7/70/Arno_Peters-Projektion.JPG")
 }
 
 function setup() {
     setInterval(askISS, 5000) //call function every 5 seconds
-    createCanvas(500, 555)
+    createCanvas(632, 399)
     fill('#ff0000')
     stroke('#ff0000')
 }
