@@ -1,6 +1,6 @@
 //get json file from NASA API, return data and call gotData
 function queryAPI() {
-    fetch("http://api.open-notify.org/iss-now.json")
+    fetch("https://api.wheretheiss.at/v1/satellites/25544")
     .then(r => {
         return r.json()
     })
@@ -12,8 +12,8 @@ function queryAPI() {
 
 //what to do after the data has returned
 function gotData(data) {
-    longitude = data.iss_position.longitude
-    latitude = data.iss_position.latitude
+    longitude = data.longitude
+    latitude = data.latitude
 
     //map the on-screen latitude and longitude to fit on the canvas
     issX = scale(longitude, -180, 180, 0, 632)
