@@ -16,8 +16,8 @@ function gotData(data) {
     latitude = data.latitude
 
     //map the on-screen latitude and longitude to fit on the canvas
-    issY = scale(longitude, -180, 180, 0, 400)
-    issX = scale(latitude, 90, -90, 0, 800)
+    issX = scale(longitude, -180, 180, 0, 800)
+    issY = scale(latitude, 90, -90, 0, 400)
 }
 
 function updatePosition() {
