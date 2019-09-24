@@ -35,8 +35,9 @@ function updatePosition() {
     context.font = "15px Arial"
     context.fillText('ISS', issX + 10, issY)
     context.font = "12px Arial"
-    context.fillText('latitude: ' + latitude, issX+10, issY+20)
-    context.fillText('longitude: ' + longitude, issX+10, issY+35)
+    //round the displayed lat and long values to 3 decimal places
+    context.fillText('latitude: ' + latitude.toFixed(3), issX+10, issY+20)
+    context.fillText('longitude: ' + longitude.toFixed(3), issX+10, issY+35)
 }
 
 //scale down real-life coordinates to fit on image
